@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint",
     "jscs": "jscs",
-    "test" : "mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
     "mocha": "^2.2.5",
     "should": "^7.0.1",
     "sinet-coding-conventions": "^1.31.0"
+  },
+  "dependencies": {
+    "bluebird": "^2.10.2"
   }
 }
