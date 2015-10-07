@@ -1,6 +1,6 @@
 {
   "name": "lapin-mock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mock for lapin",
   "main": "index.js",
   "scripts": {
