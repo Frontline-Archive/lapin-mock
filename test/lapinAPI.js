@@ -2,12 +2,11 @@
 
 require( 'should' );
 
-var EventEmitter = require( 'events' ).EventEmitter;
-var Promise      = require( 'bluebird' );
-var rabbitAPI    = require( '../lib/lapinAPI' )();
+const EventEmitter = require( 'events' ).EventEmitter;
+const Promise      = require( 'bluebird' );
+const rabbitAPI    = require( '../lib/lapinAPI' )();
 
 describe( 'lapinAPI', function () {
-
 	it( 'should have request property', function () {
 		rabbitAPI.should.have.property( 'request' ).and.be.instanceOf( Function );
 		rabbitAPI.request().should.be.an.instanceOf( EventEmitter );

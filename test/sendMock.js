@@ -3,18 +3,14 @@
 require( 'should' );
 
 describe( 'SendMock object', function () {
+	let SendMock, instanceSendMock;
 
-	var SendMock;
-	var instanceSendMock;
-
-	var doneMock = function () {};
+	let doneMock = function () {};
 
 	beforeEach( function ( done ) {
-
 		SendMock         = require( '../lib/sendMock' );
 		instanceSendMock = new SendMock( doneMock );
 		done();
-
 	} );
 
 	it( 'should be an instance of object', function () {
@@ -22,27 +18,21 @@ describe( 'SendMock object', function () {
 	} );
 
 	it( 'should have attributes', function () {
+		let counter = 0;
 
-		var counter = 0;
-
-		var properties = [
+		const properties = [
 			'success',
 			'error',
 			'fail'
 		];
 
-		for( var propertyName in instanceSendMock ) {
-
+		for ( let propertyName in instanceSendMock ) {
 			if ( !instanceSendMock.hasOwnProperty( propertyName ) ) {
-
 				// List all properties
 				propertyName.should.equal( properties[ counter ] );
 				counter++;
-
 			}
-
 		}
-
 	} );
 
 	it( 'should have a response data', function () {
@@ -51,24 +41,19 @@ describe( 'SendMock object', function () {
 	} );
 
 	it( 'should have an errorMessage, errorObject and code', function () {
-
-		var error = new Error( 'Hello Error' );
-		var code = 500;
+		const error = new Error( 'Hello Error' );
+		const code = 500;
 
 		instanceSendMock.error( error.message, error, code );
 		instanceSendMock.errorMessage.should.equal( 'Hello Error' );
 		instanceSendMock.error.should.equal( error );
 		instanceSendMock.code.should.equal( code );
-
 	} );
 
 	it( 'should have an errorMessage', function () {
-
-		var error = new Error( 'Hello Error' );
+		const error = new Error( 'Hello Error' );
 
 		instanceSendMock.fail( error.message );
 		instanceSendMock.errorMessage.should.equal( 'Hello Error' );
-
 	} );
-
 } );
